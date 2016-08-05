@@ -1,0 +1,21 @@
+<% action_url = @sub.persisted? ? edit_sub_url : subs_url %>
+<% form_method = @sub.persisted? ? :PATCH : :GET %>
+
+
+<form action="<%= action_url %>" method="POST">
+  <%= auth_token %>
+  <input type="hidden" action="_method" value="<%= form_method %>">
+
+  <label>
+    Title:
+    <input type="text" name="sub[title]" value="<%= @sub.title %>">
+  </label>
+
+  <label>
+    Description:
+    <input type="text" name="sub[description]" value="<%= @sub.description %>">
+  </label>
+
+  <input type="submit">
+
+</form>

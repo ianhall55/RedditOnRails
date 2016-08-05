@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RedditOnRails</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <% if flash.now[:errors] %>
+    <ul>
+      <% flash.now[:errors].each do |error| %>
+        <li>
+          <%= error %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if User.find_by(session_token: session[:session_token]) %>
+    <%= button_to "logout", session_url, method: :delete %>
+  <% else %>
+    <%= button_to "Sign in!", new_session_url, method: :get %>
+  <% end %>
+
+<%= yield %>
+
+</body>
+</html>

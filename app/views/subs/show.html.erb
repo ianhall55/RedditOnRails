@@ -1,0 +1,15 @@
+
+
+<section>
+  <h2><%= @sub.title %></h2>
+
+  <h3>Description</h3>
+
+  <%= @sub.description %>
+
+
+</section>
+
+<%= link_to "Edit Sub", edit_sub_url(@sub.id), method: :get %>
+<br/>
+<%= link_to "Back to Subs List", subs_url, method: :get %>
