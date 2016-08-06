@@ -1,0 +1,22 @@
+
+
+<section>
+  <h2><%= @post.title %></h2>
+
+  <h3>Content</h3>
+
+  <textarea><%= @post.content %></textarea>
+
+  <h3>Subs</h3>
+  <% if @subs %>
+  <ul>
+    <% @subs.each do |sub| %>
+      <li> <%= link_to "#{sub.title}", sub_url(sub.id), method: :get %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</section>
+
+<%= link_to "Edit Post", edit_post_url(@post.id), method: :get %>
+<br/>
+<%= link_to "Back to Subs List", subs_url, method: :get %>

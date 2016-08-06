@@ -18,6 +18,7 @@
     </ul>
   <% end %>
 
+
   <% if User.find_by(session_token: session[:session_token]) %>
     <%= button_to "logout", session_url, method: :delete %>
   <% else %>

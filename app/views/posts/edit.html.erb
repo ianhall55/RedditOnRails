@@ -1,0 +1,5 @@
+<h2>Edit Post: <%= @post.title %></h2>
+
+<%= render "form" %>
+
+<%= link_to "Cancel edit", post_url(@post.id), method: :get %>

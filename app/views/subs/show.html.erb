@@ -7,7 +7,18 @@
 
   <%= @sub.description %>
 
+  <br/><br/>
 
+  <%= link_to "Make New Post!", new_post_url, method: :get %>
+
+  <h3>Posts</h3>
+  <% if @posts %>
+  <ul>
+    <% @posts.each do |post| %>
+      <li> <%= link_to "#{post.title}", post_url(post.id), method: :get %></li>
+    <% end %>
+  </ul>
+  <% end %>
 </section>
 
 <%= link_to "Edit Sub", edit_sub_url(@sub.id), method: :get %>
